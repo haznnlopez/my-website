@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avisala or A-miss-ala? - Amir Lopez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. Variables & Global Styles (Consistent with Blog 1) --- */
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #111111;
+            --bg-card: #252525;
+            --text-white: #f5f5f5;
+            --text-grey: #b0b0b0;
+            --accent-orange: #ff6f3c;
+            --accent-light: #fdf6e9;
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Alegreya', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- 2. Header & Nav --- */
+        header {
+            background-color: var(--bg-darker);
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .profile-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-pic-small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-grey);
+        }
+
+        .nav-h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            text-decoration: underline;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--bg-darker);
+            background-color: var(--accent-light);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent-orange);
+            color: var(--text-white);
+        }
+
+        /* --- 3. Fixed Side Navigation --- */
+        .side-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 50;
+        }
+
+        .side-nav.left { left: 30px; }
+        .side-nav.right { right: 30px; }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--accent-orange);
+            border-radius: 50%;
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-orange);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .nav-label {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* --- 4. Content Styling --- */
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto 100px;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+        }
+
+        .article-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .article-meta {
+            font-family: var(--font-body);
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Typography */
+        p {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            text-align: justify;
+        }
+
+        p b {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        .article-h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-white);
+            margin: 40px 0 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            clear: both;
+        }
+
+        blockquote {
+            background-color: var(--bg-card);
+            border-left: 4px solid var(--accent-orange);
+            margin: 2.5rem 0;
+            padding: 1.5rem 2rem;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text-white);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            clear: both;
+        }
+
+        /* --- 5. Image Handling --- */
+        img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border: 1px solid #444;
+        }
+
+        .banner-img {
+            display: block;
+            margin: 0 auto 40px;
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .float-left {
+            float: left;
+            margin: 8px 30px 20px 0; 
+            max-width: 40%; 
+            height: auto;
+        }
+
+        .float-right {
+            float: right;
+            margin: 8px 0 20px 30px; 
+            max-width: 40%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--bg-darker);
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            border-top: 1px solid #333;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-brand">
+            <img src="https://ui-avatars.com/api/?name=Amir+Lopez&background=ff6f3c&color=fff" alt="Amir Lopez" class="profile-pic-small">
+            <div class="brand-text">
+                <h3 class="nav-h3">Profile</h3>
+                <span>Amir Jo-hanz Lopez</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#stories">Stories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="side-nav left">
+        <a href="blog1.html" class="nav-btn" title="Previous Story">
+            &#8592;
+        </a>
+        <span class="nav-label">Blog Story 1</span>
+    </div>
+
+    <div class="side-nav right">
+        <a href="blog3.html" class="nav-btn" title="Next Story">
+            &#8594;
+        </a>
+        <span class="nav-label">Blog Story 3</span>
+    </div>
+
+    <div class="article-container">
+        
+        <div class="article-header">
+            <h1 class="article-title">Avisala or A-miss-ala?: Anyare sa Sang'gre?</h1>
+            <div class="article-meta">By Amir Jo-hanz B. Lopez | January 28, 2026</div>
+        </div>
+
+        <img src="https://gmaworldwide.tv/wp-content/uploads/2025/07/FEATURED-IMAGE-3.png" alt="Encantadia Banner" class="banner-img">
+        
+        <p>Sure naman ako na lahat tayo kinalakihan ang <b>Encantadia</b>. Isang fantasy world na punong-puno ng powerful mages, women, and interesting stories. Sure din ako na minsan na-imagine n'yo ang sarili n'yo bilang Sang'gre. Personally, bias ko si <b>Danaya</b> dahil sobrang angas nya makipaglaban. It didn't help na ang lakas at galing n'ya humawak ng brilyante n'ya. Eh, ikaw sino bias mo sa mga Sang'gre?</p> 
+        
+        <p>
+            <img src="https://i.mydramalist.com/dw40gf.jpg" alt="Original Cast" class="float-left">
+            Bilang isang <b>batang baklita</b>, fantasy na fantasy talaga naming magkakaibigan ang paglalaban-laban kunwari. Kaya naman sobrang na-excite ako nung malaman ko na magkakabagong series ang Encantadia. Sobrang dami kong scenarios na na-i-imagine non. And syempre nag-e-expect ako ng mas magandang <b>VFX</b> kumpara noong 2016.
+        </p>
+        
+        <p>But, BUTTT. Ngayong nasusubaybayan ko na ang bagong series nila, medyo nadi-disappoint ako. At hindi 'yun kasalanan ng mga actor kasi nandyan pa rin ang <b>Hot Maria Clara</b> na love na love ko.</p>
+
+        <blockquote>
+            "Ang problema lang is ang very inconsistent plot... to the point na hindi na sya nag-aalign sa plot na kinalakihan ko."
+        </blockquote>
+
+        <h3 class="article-h3">Sang'gre-freshing Start?</h3>
+
+        <p>
+            <img src="https://preview.redd.it/ang-lakas-ni-mitena-kakagigil-v0-kq6tsq9b82af1.jpeg?width=640&crop=smart&auto=webp&s=663cc0d03097f70166f9bb9679e77f1b17e6e885" alt="Mitena Villain" class="float-right">
+            Magsimula muna tayo sa positives. I LOVE THE <b>INTRODUCTION OF THE NEW SANG'GRES</b>. As the new generation, ang ganda na nag-break sila sa mold na puro babae lang ang dapat maging Sang'gre. I love the introduction of the new villain, <b>Mitena</b>. Somehow, na-intriga ako sa story n'ya as a discarded royal child na pinatapon sa isang remote island. Gets na gets ko kung bakit s'ya naging villain. I loved din na si <b>Rhian Ramos</b> ang gumanap sa kanya dahil nabigyan n'ya ng buhay ang character ni Mitena. I was really excited to meet these characters kasi na-tease na sial sa finale ng 2016 series. All I can say is, they lived up to my expectation. I also loved their own backstories. <b>Terra</b> is the anak of Danaya pero naghiwalay sila because of the war in Encantadia. <b>Flamarra and Adamus</b> are the tagapagmana talaga of their respective brilyantes from their mothers. Lastly, si <b>Deia</b> naman ang Sang'gre na walang dugong bughaw dahil s'ya ay from the land na pinagmulan din ni Mitena. Pero, 'yan lang 'yung nagustuhan ko dito.
+        </p>
+        
+        <h3 class="article-h3">Writers Giving Nothing</h3>
+
+        <p>
+            <img src="https://encantadiasaga.wordpress.com/wp-content/uploads/2025/02/mine-a-ve-set-of-sanggre-sanya-lopez-solenn-heussaff-gabbi-garcia-ysabel-ortega-encantadia-saga-1.jpg?w=672&h=372&crop=1" alt="Production Set" class="float-left">
+            What I hate about this naman is the <b>noticeable lack of attention</b> sa mga details. Kumpara sa 2016 Encantadia with the grandiose sets and properly planned storylines, 2025 Encantadia failed to replicate the magic na dala ng dati. Instead of having intricate set designs, they opted to use <b>LED screens</b> which worked in some scenes pero sa iba, hindi talaga s'ya nagb-blend. And inaalis n'ya ako sa fantasy. Isa pa nga are the <b>loopholes</b> and the <b>plot inconsistencies</b>. Ang pinakamasaklap sa lahat ay ang <b>pagdungis nila sa mga characters</b>. Like, blatantly nilang shinow na <b>sinexually harass</b> ng isang character sina Mira at Lira. At this moment, they're trying to mend it by fixing the harasser's character pero the damage has been done. Isa pa is that the writers couldn't take criticisms especially when they're trending for having obvious plot holes. They also started this series by killing the iconic cast like <b>Ybrahim, Mira, Lira, and Kassandra</b>. They did this to open up a new storyline for Devas, but hindi rin naman naging maayos ang execution.
+        </p>
+      
+        <h3 class="article-h3">Ang Hatol</h3>
+
+        <p>This is why ang panget ng new series ng Encantadia. Don't get me wrong, I love love love the actors. But, they were so wasted dahil lang sa <b>improper and unplanned writing</b>. Marami pang inconsistensies in the plot but sobrang hahaba na ito. As someone na kinalakihan ang Encantadia, it is such a disappointment. It takes away the magic to all children and audience na attached to the show. This is why it's important na magplano meticulously para maging maganda ang kalalabasan. And that should apply to everything.</p>
+
+        <blockquote>
+            "Quality shouldn't be rushed especially to this magical world that I've loved and learning to love again."
+        </blockquote>
+
+        <p>I hate this new series, but I hope it gets better from this.</p>
+    </div>
+
+    <footer>
+        &copy; 2026 Amir Lopez. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

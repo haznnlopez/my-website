@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Day in My Life with AI - Amir Lopez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #111111;
+            --bg-card: #252525;
+            --text-white: #f5f5f5;
+            --text-grey: #b0b0b0;
+            --accent-orange: #ff6f3c;
+            --accent-light: #fdf6e9;
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Alegreya', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- 2. Header & Nav --- */
+        header {
+            background-color: var(--bg-darker);
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .profile-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-pic-small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-grey);
+        }
+
+        .nav-h3  {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            text-decoration: underline;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--bg-darker);
+            background-color: var(--accent-light);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent-orange);
+            color: var(--text-white);
+        }
+
+        /* --- 3. Fixed Side Navigation (Arrows) --- */
+        .side-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 50;
+        }
+
+        .side-nav.left {
+            left: 30px;
+        }
+
+        .side-nav.right {
+            right: 30px;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--accent-orange);
+            border-radius: 50%;
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-orange);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .nav-label {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* --- 4. Main Article Content --- */
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto 100px;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+        }
+
+        .article-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .article-meta {
+            font-family: var(--font-body);
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout */
+        p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            text-align: justify;
+        }
+
+        p b {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+        
+        /* New: Blockquote Style */
+        blockquote {
+            background-color: var(--bg-card);
+            border-left: 4px solid var(--accent-orange);
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--text-white);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .article-h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-white);
+            margin: 40px 0 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* Floating Images */
+        .float-img {
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            border: 1px solid #333;
+        }
+
+        .float-right {
+            float: right;
+            margin-left: 30px;
+            width: 300px;
+            height: auto;
+        }
+
+        .float-left {
+            float: left;
+            margin-right: 30px;
+            width: 300px;
+            height: auto;
+        }
+
+        /* Special Effects */
+        .blur-effect {
+            filter: blur(1px);
+            transition: filter 0.3s ease;
+        }
+        
+        .blur-effect:hover {
+            filter: blur(0);
+        }
+
+        /* Simple Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--bg-darker);
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="profile-brand">
+            <img src="https://ui-avatars.com/api/?name=Amir+Lopez&background=ff6f3c&color=fff" alt="Amir Lopez" class="profile-pic-small">
+            <div class="brand-text">
+                <h3 class="nav-h3">Profile</h3>
+                <span>Amir Jo-hanz Lopez</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#stories">Stories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="side-nav left">
+        <a href="biography.html" class="nav-btn" title="Previous Story">
+            &#8592;
+        </a>
+        <span class="nav-label">Biography</span>
+    </div>
+
+    <div class="side-nav right">
+        <a href="blog2.html" class="nav-btn" title="Next Story">
+            &#8594;
+        </a>
+        <span class="nav-label">Blog Story 2</span>
+    </div>
+
+    <article class="article-container">
+        <div class="article-header">
+            <h1 class="article-title">A Day in My Life with AI</h1>
+            <div class="article-meta">By Amir Jo-hanz B. Lopez | January 15, 2026</div>
+        </div>
+        
+        <p>
+            <img src="https://media.istockphoto.com/id/1421242899/vector/wake-up-woman-morning-sunlight-and-stretching-beautiful-girl-in-bedroom-wake-up-at-bed-sleep.jpg?s=612x612&w=0&k=20&c=KD5v4sgssQt8X9aGez0NZ4FpUYHulas4KxChHoJveLo=" alt="Morning Routine" class="float-img float-right">
+            Instead of starting my day with a sip of coffee, I start it with <b>lingering questions</b> in mind.
+        </p> 
+        
+        <blockquote>
+            "What should I do for today?" <br>
+            "What should I prioritize?" <br>
+            "How can I do this or that?"
+        </blockquote>
+        
+        <p>
+            Amidst these <b>mind-boggling thoughts</b> that clouded my brain came my <b>hero</b> who helped me in deciding with ease. Here is how <b>AI tools and software</b> gradually started to become part of my routine.
+        </p>
+        
+        <p>
+            As I go through my day, these tools have become my <b>second brain</b>. At first, it was beneficial for me since I tend to overthink a lot. Having this sense of <b>guidance and assurance</b> helped me in navigating through my day. Some instances where I use AI is whenever I get stuck with complex, complicated, and confusing homeworks. I have always sought these tools' assistance. I also tend to rant to these tools when I feel overwhelmed with emotions. In some way, these tools were like <b>mentors, therapists, and even doctors</b>, which I took advantage due to their accessibility.
+        </p>
+        
+        <h3 class="article-h3">When Help Becomes A Habit</h3>
+        
+        <p>
+            <img src="https://vdc.edu.au/wp-content/uploads/2019/07/Article-2-Human-skills-the-real-future-need-of-workers.jpg.webp" alt="Technology Balance" class="float-img float-left">
+            As much as I enjoy and appreciate the benefits of using AI tools, there are times when the line between using them merely as tools and letting it decide for you start to <b class="blur-effect">blur</b>. It is true that at this age and time, AI is unavoidable and there's no choice for us but to embrace it. However, there should always be <b><i>boundaries</i></b>.
+        </p>
+        
+        <p>
+            Whenever I use AI for assistance, I feel productive and sure of what I'm doing. But, when I use it to <b>make decisions for me</b>, something in me shifts. Sure, decisions feel easier, but it also feels <b>less mine</b>. These tools view our prompts from an objective standpoint and doesn't look at what's beyond. This is not about how AI gives bad advice, it is about how I feel <b>less in-charge</b> when it comes to my judgment. And this is important for our growth. Growth comes with <b>mistakes, uncertainty, and reflection</b>—something no algorithm can replicate.
+        </p>
+        
+        <p>
+            In the end, this is still a part of my growth. AI tools are there for me to <b>amplify my thoughts</b>. They are there for me to assist me. But they should never <b>replicate and replace my voice</b>. As we go on with our lives, it is important to know and internalize that our choices and decisions are ours. Now that you're done reading this, my title could use a little tweaking. Changing it to: "A Day in My Life with Me and AI" now emphasizes my position, my stance, and my presence in my daily routine with AI as a <b>mere companion</b>.
+        </p>    
+    </article>
+
+    <footer>
+        &copy; 2026 Amir Lopez. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

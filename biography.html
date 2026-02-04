@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. Variables & Global Styles (Matches Home) --- */
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #111111;
+            --bg-card: #252525;
+            --text-white: #f5f5f5;
+            --text-grey: #b0b0b0;
+            --accent-orange: #ff6f3c;
+            --accent-light: #fdf6e9;
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Alegreya', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- 2. Header & Nav --- */
+        header {
+            background-color: var(--bg-darker);
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .profile-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-pic-small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--text-grey);
+        }
+
+        .nav-h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            text-decoration: underline;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--bg-darker);
+            background-color: var(--accent-light);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent-orange);
+            color: var(--text-white);
+        }
+
+        /* --- 3. Fixed Side Navigation (Arrows) --- */
+        .side-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 50;
+        }
+
+        .side-nav.left {
+            left: 30px;
+        }
+
+        .side-nav.right {
+            right: 30px;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--accent-orange);
+            border-radius: 50%;
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-orange);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .nav-label {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* --- 4. Main Article Content --- */
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto 100px;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+        }
+
+        .article-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .article-meta {
+            font-family: var(--font-body);
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Typography & Layout */
+        p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            text-align: justify;
+        }
+
+        p b {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        .article-h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-white);
+            margin: 40px 0 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* Floating Images */
+        .float-img {
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            border: 1px solid #333;
+        }
+
+        .float-right {
+            float: right;
+            margin-left: 30px;
+            width: 300px;
+            height: auto;
+        }
+
+        .float-left {
+            float: left;
+            margin-right: 30px;
+            width: 300px;
+            height: auto;
+        }
+
+        /* Simple Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--bg-darker);
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="profile-brand">
+            <img src="https://ui-avatars.com/api/?name=Amir+Lopez&background=ff6f3c&color=fff" alt="Amir Lopez" class="profile-pic-small">
+            <div class="brand-text">
+                <h3 class="nav-h3">Profile</h3>
+                <span>Amir Jo-hanz Lopez</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#stories">Stories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="side-nav left">
+        <a href="index.html" class="nav-btn" title="Back to Home">
+            &#8962; </a>
+        <span class="nav-label">Home</span>
+    </div>
+
+    <div class="side-nav right">
+        <a href="blog1.html" class="nav-btn" title="Next Story">
+            &#8594; </a>
+        <span class="nav-label">Blog Story 1</span>
+    </div>
+
+    <article class="article-container">
+        <div class="article-header">
+            <h1 class="article-title">Trading Stress for Success</h1>
+            <div class="article-meta">By Amir Jo-hanz B. Lopez</div>
+        </div>
+
+        <h3 class="article-h3">Childhood Years</h3>
+        <p>
+            <img src="https://static.vecteezy.com/system/resources/previews/035/780/762/non_2x/little-girl-stands-near-school-chalk-board-with-formulas-and-tries-to-solve-difficult-problem-child-prodigy-student-in-elementary-school-thought-about-solving-theorem-from-higher-mathematics-vector.jpg" alt="Childhood Memory" class="float-img float-right">
+            Ever since I was a child, I’ve been exposed to the <b>competitive environment</b>. I’ve been joining many competitions and contests which I believed helped create the person I am today. As a child, I never focused on the struggles or hardships of participating; I really found it fun and enjoyable. It also helped that I had a supportive mother who encouraged me to join these contests. When I was in Grade 1, my adviser chose me to join the <b>Math-Raton</b>, a contest that required quick thinking and rapid problem-solving. As a 6-year-old, I was naïve and clueless about the world I was about to enter. I remember staying after class every day just to train. I remember reviewing at school until nightfall. This continued until I reached Grade 6.
+        </p>
+
+        <p>
+            I never worried about falling behind in classes since my teachers, who were also my coaches, were very lenient. I did not have any problem with my academics; in fact, I was praised by my teachers because, despite my busy schedule, I was still able to submit proper outputs on time. During this period, I achieved many awards. My greatest accomplishments were reaching the National level for the Science Quiz Bee, where I placed 4th, and winning the National Bulilit Health Workers Quiz Bee two years in a row. These competitions brought me not only joy but also took me to places I’d never been before. I remember being amazed by the scenic views in Tagaytay—even while crying because I couldn’t find my mother. I remember the long drive to Pasig while preparing for the contest the next day. These moments were valuable; they are a constant part of me. <b>Ultimately, they were experiences that made me who I am today.</b>
+        </p>
+
+        <h3 class="article-h3">Teenage Years</h3>
+        <p>
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer-p5CZl0KaiHQ34R7FrITI8qk06G-gxr4ppKMqVtAvTUv3_Aqo3NI3EV0HzTiPMqntEk8Ozm29UPVVi660DxXL8rVRJYbJEZUxSNA_xQRlLgq5dA5YwGW9UECRFTw_PuInZZeb=s1360-w1360-h1020-rw" alt="Teenage Life" class="float-img float-left">
+            Everything changed dramatically the moment I stepped into high school. I enrolled in the <b>Philippine Science High School (PSHS)</b>, which is full of students with huge potential. I wasn’t bad, but there were schoolmates who were far more superior to me. My past experiences seemed tiny compared to the things my peers had already done. Although I felt a bit down, this gave me a perfect reason to really focus on my academics. However, PSHS’s very advanced classes didn’t make this goal easy at all. We were constantly given huge amounts of schoolwork and activities, which made everything stressful. The stress just got worst when the pandemic started, completely demotivating me. I stopped attending my online classes and kept procrastinating on all my assignments. 
+        </p>
+        
+        <p>
+            This whole period became my worst nightmare as my grades dropped to an all-time low. Thankfully, the pandemic eventually ended, and we could go back to our on-site classes. I finally managed to get back on track again. I started doing well in my subjects and prepared seriously for my college applications. The final part of my high school life was filled with fun times and new friendships. I made sure to enjoy my teenage years fully. The best part was meeting lifelong friends who accepted me as I was. They never judged me based on how smart I was or what I was capable of. I <b>graduated happily</b>, even though I didn’t receive any honors. It was such a refreshing feeling to leave PSHS smiling, finally free from the stressful workload.
+        </p>
+
+        <h3 class="article-h3">College Years</h3>
+        <p>
+            <img src="https://images.gmanews.tv/webpics/2025/07/UE_2025_07_11_00_58_23.GIF" alt="University Life" class="float-img float-right">
+            They often say that <b>the end of one thing marks the exciting start of something new</b>. Entering college truly brought a huge surge of both excitement and genuine fear for me. College is frequently described as the place where the real and serious challenges begin. However, I felt like my challenge started before I officially enrolled in any university. Despite dedicating huge amounts of time preparing for applications to different schools, my efforts were ultimately not enough. I couldn’t secure admission into the few dream schools I had initially targeted. In a moment of high pressure, I ended up enrolling at the <b>University of the East (UE)</b> as a last-minute decision. 
+        </p>
+
+        <p>
+            Now, looking back as time passes, I really believe that it was my fate to end up here. So far, I can honestly say I am thoroughly enjoying my overall stay at UE. I have met a number of great people who became excellent friends and mentors. I am also finding genuine success in various academic subjects and courses. Furthermore, I am starting to gain recognition by participating in different competitions. In a way, my competitive nature, which was muted in high school, has been fully rekindled. It is true that navigating college may seem scary and overwhelming. Thankfully, my previous difficult experiences helped me prepare for this new phase. The resilience I gained allows me to handle the increased academic pressures. I know I can succeed because I learned how to bounce back from difficult times before. The University of the East is turning out to be the perfect environment for me to grow as a student, and as a professional. <b>It feels like a fresh, successful chapter is now unfolding in my life.</b>
+        </p>
+    </article>
+
+    <footer>
+        &copy; 2026 Amir Lopez. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
