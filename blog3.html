@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is this really IT? - Amir Lopez</title>
+    
+    <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=AL&background=ff6f3c&color=fff&size=32">
+    <link rel="apple-touch-icon" href="https://ui-avatars.com/api/?name=AL&background=ff6f3c&color=fff&size=180">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,6 +27,10 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background-color: var(--bg-dark);
@@ -104,11 +112,13 @@
             display: flex; justify-content: center; align-items: center;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0.5;
         }
 
         .nav-btn:hover {
             background-color: var(--accent-orange);
             color: white; transform: scale(1.1);
+            opacity: 1;
         }
 
         .nav-label {
@@ -161,6 +171,53 @@
             padding-bottom: 10px; clear: both;
         }
 
+        .article-nav {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .article-nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .article-nav a {
+            color: var(--bg-darker);
+            background-color: var(--accent-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        
+        .article-nav a:hover {
+            background-color: var(--accent-orange);
+            color: var(--text-white);
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+            pointer-events: none;
+        }
+        
+        .back-to-top a {
+            pointer-events: auto;
+            text-decoration: none;
+        }
+
         blockquote {
             background-color: var(--bg-card);
             border-left: 4px solid var(--accent-orange);
@@ -202,13 +259,27 @@
             font-size: 0.9rem; color: var(--text-grey);
             border-top: 1px solid #333; clear: both;
         }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-card);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--accent-orange);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="profile-brand">
-            <img src="https://ui-avatars.com/api/?name=Amir+Lopez&background=ff6f3c&color=fff" alt="Amir Lopez" class="profile-pic-small">
+            <img src="images/profile-img.png" alt="Amir Lopez" class="profile-pic-small">
             <div class="brand-text">
                 <h3 class="nav-h3">Profile</h3>
                 <span>Amir Jo-hanz Lopez</span>
@@ -218,8 +289,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#stories">Stories</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="mailto: amirlopezong@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -245,24 +315,44 @@
             <div class="article-meta">By Amir Jo-hanz B. Lopez | February 1, 2026</div>
         </div>
 
+        <nav class="article-nav">
+            <ul>
+                <li><a href="#subhead1">import "ComputerScience"</a></li>
+                <li><a href="#subhead2">function executePassion()</a></li>
+                <li><a href="#subhead3">return "This is IT"</a></li>
+            </ul>
+        </nav>
         
-        <img src="https://img.freepik.com/free-vector/space-background-flat_1284-7536.jpg?semt=ais_hybrid&w=740&q=80" alt="Sky and clouds" class="float-right">
+        <div class="back-to-top">
+            <a href="#top" class="nav-btn" title="Back to Top">↑</a>
+        </div>
 
+        <br><br>
+        <a href="https://img.freepik.com/free-vector/space-background-flat_1284-7536.jpg?semt=ais_hybrid&w=740&q=80" target="images">
+            <img src="https://img.freepik.com/free-vector/space-background-flat_1284-7536.jpg?semt=ais_hybrid&w=740&q=80" alt="Sky and clouds" title="Sky and Clouds" class="float-right">
+        </a>
+        
         <p>We all had dreams and aspirations as children. For me, I wanted to reach the skies. The thought of being up in the air, viewing the world from a <strong>different perspective</strong>, truly intrigued me. I was obsessed with the idea of becoming a <strong>pilot</strong> or an <strong>astronaut</strong>. However, as I grew up, I began to ask myself, <em>'Is this really it? Is this truly my dream?'</em> Soon enough, the desire to be high above was buried deep within my mind.</p> 
         
+        <p id="subhead1"><br><br></p>
         <h3 class="article-h3">import "ComputerScience"</h3>
 
         <p>It wasn't until high school that I engaged with various courses that piqued my interest. One of those subjects was, of course, <strong>Computer Science</strong>. This aspiration began in Grade 7, when we started building basic websites using <strong>HTML and CSS</strong>. I was fascinated by how such simple interfaces could be driven by complex code. My love for computer science only grew in the following years as more programming languages were introduced to us. We were taught <strong>C++</strong>, <strong>JavaScript</strong>, and <strong>Java</strong>, and I was amazed by their mechanics.</p>
 
-        <img src="https://media.istockphoto.com/id/1413922045/vector/programming-at-home.jpg?s=612x612&w=0&k=20&c=_5UhZu0-etj-lWZorNUAkF_PEqXfHpuf44dCeWeCOvc=" alt="Coding Background" class="banner-img">
+        <a href="https://media.istockphoto.com/id/1413922045/vector/programming-at-home.jpg?s=612x612&w=0&k=20&c=_5UhZu0-etj-lWZorNUAkF_PEqXfHpuf44dCeWeCOvc=" target="images">
+            <img src="https://media.istockphoto.com/id/1413922045/vector/programming-at-home.jpg?s=612x612&w=0&k=20&c=_5UhZu0-etj-lWZorNUAkF_PEqXfHpuf44dCeWeCOvc=" alt="Coding Background" title="Coding" class="banner-img">
+        </a>
         
         <p>This adoration for computer science continued into college. When asked if I was pursuing my dream school or my dream course, I undoubtedly answered <strong>'dream course.'</strong> To me, Computer Science is the future; everything is advancing and in need of innovation. With knowledge in this area, I know I can be of <strong>great help to people</strong>.</p>
         
         <p>Apart from that, I know that joining the IT industry will support me and my family in the future. The potential earnings for computer science experts are significant. Although I know I am still far from that point, I believe that with <strong>perseverance and focus</strong>, I can reach it.</p>
         
+        <p id="subhead2"><br><br></p>
         <h3 class="article-h3">function executePassion()</h3>
 
-        <img src="https://thumbs.dreamstime.com/b/i-can-do-motivational-poster-i-can-do-motivational-poster-woman-correcting-negative-grammatical-construction-positive-218098408.jpg" alt="Code on screen" class="float-left">
+        <a href="https://thumbs.dreamstime.com/b/i-can-do-motivational-poster-i-can-do-motivational-poster-woman-correcting-negative-grammatical-construction-positive-218098408.jpg" target="images">
+            <img src="https://thumbs.dreamstime.com/b/i-can-do-motivational-poster-i-can-do-motivational-poster-woman-correcting-negative-grammatical-construction-positive-218098408.jpg" alt="Code on screen" title="I can do it!" class="float-left">
+        </a>
 
         <p>Beyond the practical benefits, I find a sense of <strong>satisfaction</strong> in the work itself. The process of debugging a complex error or watching a project come to life offers a unique <strong>thrill</strong> that I haven't found elsewhere. Every challenge I overcome serves as proof that I am capable of mastering this craft, turning what was once a mere interest into a <strong>genuine passion</strong>.</p>
         
@@ -274,10 +364,14 @@
         
         <p>Ultimately, my biggest aspiration is to use this expertise to leave an <strong>indelible mark</strong> on the world. I dream of developing software that solves real-world problems. Systems that can streamline healthcare, improve education, or connect communities in meaningful ways. I want to look back years from now and see that my code did not just run on a machine, but that it <strong>improved lives</strong>. This desire to contribute to the greater good is the fuel that drives my ambition.</p>
         
+        <p id="subhead3"><br><br></p>
         <h3 class="article-h3">return "This is IT"</h3>
 
         <p>
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/015/426/900/small/concept-of-choice-between-hard-and-easy-way-free-vector.jpg" alt="Code on screen" class="float-right">
+            <a href="https://static.vecteezy.com/system/resources/thumbnails/015/426/900/small/concept-of-choice-between-hard-and-easy-way-free-vector.jpg" target="images">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/015/426/900/small/concept-of-choice-between-hard-and-easy-way-free-vector.jpg" alt="Choosing a path" title="Choosing a path" class="float-right">
+            </a>
+
             The doubts that once clouded my mind have now completely vanished. I look at the infinite possibilities on the screen before me and a sudden clarity washes over me: <strong>This is it. This is IT.</strong></p>
 
         <blockquote>
