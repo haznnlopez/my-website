@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avisala or A-miss-ala? - Amir Lopez</title>
+    
+    <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=AL&background=ff6f3c&color=fff&size=32">
+    <link rel="apple-touch-icon" href="https://ui-avatars.com/api/?name=AL&background=ff6f3c&color=fff&size=180">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,6 +30,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -130,12 +138,14 @@
             align-items: center;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0.5;
         }
 
         .nav-btn:hover {
             background-color: var(--accent-orange);
             color: white;
             transform: scale(1.1);
+            opacity: 1;
         }
 
         .nav-label {
@@ -204,6 +214,53 @@
             clear: both;
         }
 
+        .article-nav {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .article-nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .article-nav a {
+            color: var(--bg-darker);
+            background-color: var(--accent-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        
+        .article-nav a:hover {
+            background-color: var(--accent-orange);
+            color: var(--text-white);
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+            pointer-events: none;
+        }
+        
+        .back-to-top a {
+            pointer-events: auto;
+            text-decoration: none;
+        }
+
         blockquote {
             background-color: var(--bg-card);
             border-left: 4px solid var(--accent-orange);
@@ -258,13 +315,27 @@
             border-top: 1px solid #333;
             clear: both;
         }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-card);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--accent-orange);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="profile-brand">
-            <img src="https://ui-avatars.com/api/?name=Amir+Lopez&background=ff6f3c&color=fff" alt="Amir Lopez" class="profile-pic-small">
+            <img src="images/profile-img.png" alt="Amir Lopez" class="profile-pic-small">
             <div class="brand-text">
                 <h3 class="nav-h3">Profile</h3>
                 <span>Amir Jo-hanz Lopez</span>
@@ -274,8 +345,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#stories">Stories</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="mailto: amirlopezong@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -301,12 +371,30 @@
             <div class="article-meta">By Amir Jo-hanz B. Lopez | January 28, 2026</div>
         </div>
 
-        <img src="https://gmaworldwide.tv/wp-content/uploads/2025/07/FEATURED-IMAGE-3.png" alt="Encantadia Banner" class="banner-img">
+        <nav class="article-nav">
+            <ul>
+                <li><a href="#subhead1">Sang'gre-freshing Start?</a></li>
+                <li><a href="#subhead2">Writers Giving Nothing</a></li>
+                <li><a href="#subhead3">Ang Hatol</a></li>
+            </ul>
+        </nav>
+        
+        <div class="back-to-top">
+            <a href="#top" class="nav-btn" title="Back to Top">↑</a>
+        </div>
+
+        <br><br>
+        <a href="https://gmaworldwide.tv/wp-content/uploads/2025/07/FEATURED-IMAGE-3.png" target="images">
+            <img src="https://gmaworldwide.tv/wp-content/uploads/2025/07/FEATURED-IMAGE-3.png" alt="Encantadia Banner" title="Encantadia: Sang'gre" class="banner-img">
+        </a>
         
         <p>Sure naman ako na lahat tayo kinalakihan ang <b>Encantadia</b>. Isang fantasy world na punong-puno ng powerful mages, women, and interesting stories. Sure din ako na minsan na-imagine n'yo ang sarili n'yo bilang Sang'gre. Personally, bias ko si <b>Danaya</b> dahil sobrang angas nya makipaglaban. It didn't help na ang lakas at galing n'ya humawak ng brilyante n'ya. Eh, ikaw sino bias mo sa mga Sang'gre?</p> 
         
         <p>
-            <img src="https://i.mydramalist.com/dw40gf.jpg" alt="Original Cast" class="float-left">
+            <a href="https://i.mydramalist.com/dw40gf.jpg" target="images">
+                <img src="https://i.mydramalist.com/dw40gf.jpg" alt="Original Cast" title="Encantadia 2016" class="float-left">
+            </a>
+
             Bilang isang <b>batang baklita</b>, fantasy na fantasy talaga naming magkakaibigan ang paglalaban-laban kunwari. Kaya naman sobrang na-excite ako nung malaman ko na magkakabagong series ang Encantadia. Sobrang dami kong scenarios na na-i-imagine non. And syempre nag-e-expect ako ng mas magandang <b>VFX</b> kumpara noong 2016.
         </p>
         
@@ -316,20 +404,29 @@
             "Ang problema lang is ang very inconsistent plot... to the point na hindi na sya nag-aalign sa plot na kinalakihan ko."
         </blockquote>
 
+        <p id="subhead1"><br><br></p>
         <h3 class="article-h3">Sang'gre-freshing Start?</h3>
 
         <p>
-            <img src="https://preview.redd.it/ang-lakas-ni-mitena-kakagigil-v0-kq6tsq9b82af1.jpeg?width=640&crop=smart&auto=webp&s=663cc0d03097f70166f9bb9679e77f1b17e6e885" alt="Mitena Villain" class="float-right">
+            <a href="https://preview.redd.it/ang-lakas-ni-mitena-kakagigil-v0-kq6tsq9b82af1.jpeg?width=640&crop=smart&auto=webp&s=663cc0d03097f70166f9bb9679e77f1b17e6e885" target="images">
+                <img src="https://preview.redd.it/ang-lakas-ni-mitena-kakagigil-v0-kq6tsq9b82af1.jpeg?width=640&crop=smart&auto=webp&s=663cc0d03097f70166f9bb9679e77f1b17e6e885" alt="Mitena Villain" title="Rhiann Ramos as Mitena" class="float-right">
+            </a>
+
             Magsimula muna tayo sa positives. I LOVE THE <b>INTRODUCTION OF THE NEW SANG'GRES</b>. As the new generation, ang ganda na nag-break sila sa mold na puro babae lang ang dapat maging Sang'gre. I love the introduction of the new villain, <b>Mitena</b>. Somehow, na-intriga ako sa story n'ya as a discarded royal child na pinatapon sa isang remote island. Gets na gets ko kung bakit s'ya naging villain. I loved din na si <b>Rhian Ramos</b> ang gumanap sa kanya dahil nabigyan n'ya ng buhay ang character ni Mitena. I was really excited to meet these characters kasi na-tease na sial sa finale ng 2016 series. All I can say is, they lived up to my expectation. I also loved their own backstories. <b>Terra</b> is the anak of Danaya pero naghiwalay sila because of the war in Encantadia. <b>Flamarra and Adamus</b> are the tagapagmana talaga of their respective brilyantes from their mothers. Lastly, si <b>Deia</b> naman ang Sang'gre na walang dugong bughaw dahil s'ya ay from the land na pinagmulan din ni Mitena. Pero, 'yan lang 'yung nagustuhan ko dito.
         </p>
         
+        <p id="subhead2"><br><br></p>
         <h3 class="article-h3">Writers Giving Nothing</h3>
 
         <p>
-            <img src="https://encantadiasaga.wordpress.com/wp-content/uploads/2025/02/mine-a-ve-set-of-sanggre-sanya-lopez-solenn-heussaff-gabbi-garcia-ysabel-ortega-encantadia-saga-1.jpg?w=672&h=372&crop=1" alt="Production Set" class="float-left">
+            <a href="https://encantadiasaga.wordpress.com/wp-content/uploads/2025/02/mine-a-ve-set-of-sanggre-sanya-lopez-solenn-heussaff-gabbi-garcia-ysabel-ortega-encantadia-saga-1.jpg?w=672&h=372&crop=1" target="images">
+                <img src="https://encantadiasaga.wordpress.com/wp-content/uploads/2025/02/mine-a-ve-set-of-sanggre-sanya-lopez-solenn-heussaff-gabbi-garcia-ysabel-ortega-encantadia-saga-1.jpg?w=672&h=372&crop=1" alt="Production Set" title="Encantadia New Set" class="float-left">
+            </a>
+            
             What I hate about this naman is the <b>noticeable lack of attention</b> sa mga details. Kumpara sa 2016 Encantadia with the grandiose sets and properly planned storylines, 2025 Encantadia failed to replicate the magic na dala ng dati. Instead of having intricate set designs, they opted to use <b>LED screens</b> which worked in some scenes pero sa iba, hindi talaga s'ya nagb-blend. And inaalis n'ya ako sa fantasy. Isa pa nga are the <b>loopholes</b> and the <b>plot inconsistencies</b>. Ang pinakamasaklap sa lahat ay ang <b>pagdungis nila sa mga characters</b>. Like, blatantly nilang shinow na <b>sinexually harass</b> ng isang character sina Mira at Lira. At this moment, they're trying to mend it by fixing the harasser's character pero the damage has been done. Isa pa is that the writers couldn't take criticisms especially when they're trending for having obvious plot holes. They also started this series by killing the iconic cast like <b>Ybrahim, Mira, Lira, and Kassandra</b>. They did this to open up a new storyline for Devas, but hindi rin naman naging maayos ang execution.
         </p>
-      
+        
+        <p id="subhead3"><br><br></p>
         <h3 class="article-h3">Ang Hatol</h3>
 
         <p>This is why ang panget ng new series ng Encantadia. Don't get me wrong, I love love love the actors. But, they were so wasted dahil lang sa <b>improper and unplanned writing</b>. Marami pang inconsistensies in the plot but sobrang hahaba na ito. As someone na kinalakihan ang Encantadia, it is such a disappointment. It takes away the magic to all children and audience na attached to the show. This is why it's important na magplano meticulously para maging maganda ang kalalabasan. And that should apply to everything.</p>
