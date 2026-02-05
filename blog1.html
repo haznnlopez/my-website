@@ -137,12 +137,14 @@
             align-items: center;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0.5;
         }
 
         .nav-btn:hover {
             background-color: var(--accent-orange);
             color: white;
             transform: scale(1.1);
+            opacity: 1;
         }
 
         .nav-label {
@@ -282,8 +284,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#stories">Stories</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="mailto: amirlopezong@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -304,12 +305,26 @@
 
     <article class="article-container">
         <div class="article-header">
-            <h1 class="article-title">A Day in My Life with AI</h1>
+            <h1 id="top" class="article-title">A Day in My Life with AI</h1>
             <div class="article-meta">By Amir Jo-hanz B. Lopez | January 15, 2026</div>
+        </div>
+
+        <nav class="article-nav">
+            <ul>
+                <li><a href="#subhead1">When help becomes a habit</a></li>
+                <li><a href="#teen">Teenage Years</a></li>
+                <li><a href="#college">College Years</a></li>
+            </ul>
+        </nav>
+        
+        <div class="back-to-top">
+            <a href="#top" class="nav-btn" title="Back to Top">↑</a>
         </div>
         
         <p>
-            <img src="https://media.istockphoto.com/id/1421242899/vector/wake-up-woman-morning-sunlight-and-stretching-beautiful-girl-in-bedroom-wake-up-at-bed-sleep.jpg?s=612x612&w=0&k=20&c=KD5v4sgssQt8X9aGez0NZ4FpUYHulas4KxChHoJveLo=" alt="Morning Routine" class="float-img float-right">
+            <a href="https://media.istockphoto.com/id/1421242899/vector/wake-up-woman-morning-sunlight-and-stretching-beautiful-girl-in-bedroom-wake-up-at-bed-sleep.jpg?s=612x612&w=0&k=20&c=KD5v4sgssQt8X9aGez0NZ4FpUYHulas4KxChHoJveLo=" target="images">
+                <img src="https://media.istockphoto.com/id/1421242899/vector/wake-up-woman-morning-sunlight-and-stretching-beautiful-girl-in-bedroom-wake-up-at-bed-sleep.jpg?s=612x612&w=0&k=20&c=KD5v4sgssQt8X9aGez0NZ4FpUYHulas4KxChHoJveLo=" alt="Morning Routine" class="float-img float-right" title="Waking up">
+            </a>
             Instead of starting my day with a sip of coffee, I start it with <b>lingering questions</b> in mind.
         </p> 
         
@@ -326,11 +341,14 @@
         <p>
             As I go through my day, these tools have become my <b>second brain</b>. At first, it was beneficial for me since I tend to overthink a lot. Having this sense of <b>guidance and assurance</b> helped me in navigating through my day. Some instances where I use AI is whenever I get stuck with complex, complicated, and confusing homeworks. I have always sought these tools' assistance. I also tend to rant to these tools when I feel overwhelmed with emotions. In some way, these tools were like <b>mentors, therapists, and even doctors</b>, which I took advantage due to their accessibility.
         </p>
-        
+
+        <p id="subhead1"><br><br></p>
         <h3 class="article-h3">When Help Becomes A Habit</h3>
         
         <p>
-            <img src="https://vdc.edu.au/wp-content/uploads/2019/07/Article-2-Human-skills-the-real-future-need-of-workers.jpg.webp" alt="Technology Balance" class="float-img float-left">
+            <a href="https://vdc.edu.au/wp-content/uploads/2019/07/Article-2-Human-skills-the-real-future-need-of-workers.jpg.webp" target="images">
+                <img src="https://vdc.edu.au/wp-content/uploads/2019/07/Article-2-Human-skills-the-real-future-need-of-workers.jpg.webp" alt="Technology Balance" class="float-img float-left" title="Human and AI">
+            </a>
             As much as I enjoy and appreciate the benefits of using AI tools, there are times when the line between using them merely as tools and letting it decide for you start to <b class="blur-effect">blur</b>. It is true that at this age and time, AI is unavoidable and there's no choice for us but to embrace it. However, there should always be <b><i>boundaries</i></b>.
         </p>
         
@@ -348,4 +366,5 @@
     </footer>
 
 </body>
+
 </html>
