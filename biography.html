@@ -28,6 +28,11 @@
             box-sizing: border-box;
         }
 
+        /* Smooth scrolling for the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-white);
@@ -210,6 +215,47 @@
             border-bottom: 1px solid #333;
             padding-bottom: 10px;
         }
+        
+        .article-nav {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .article-nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Reusing the pill button style from the header */
+        .article-nav a {
+            color: var(--bg-darker);
+            background-color: var(--accent-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        
+        .article-nav a:hover {
+            background-color: var(--accent-orange);
+            color: var(--text-white);
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
         /* Floating Images */
         .float-img {
@@ -259,8 +305,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#stories">Stories</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="mailto: amirlopezong@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -282,8 +327,20 @@
             <h1 class="article-title">Trading Stress for Success</h1>
             <div class="article-meta">By Amir Jo-hanz B. Lopez</div>
         </div>
-
-        <h3 class="article-h3">Childhood Years</h3>
+        
+        <nav class="article-nav">
+            <ul>
+                <li><a href="#child">Childhood</a></li>
+                <li><a href="#teen">Teenage Years</a></li>
+                <li><a href="#college">College</a></li>
+            </ul>
+        </nav>
+        
+        <div class="back-to-top">
+            <a href="#top" class="nav-btn" title="Back to Top">↑</a>
+        </div>
+        
+        <h3 id="child" class="article-h3">Childhood Years</h3>
         <p>
             <a href="https://static.vecteezy.com/system/resources/previews/035/780/762/non_2x/little-girl-stands-near-school-chalk-board-with-formulas-and-tries-to-solve-difficult-problem-child-prodigy-student-in-elementary-school-thought-about-solving-theorem-from-higher-mathematics-vector.jpg" target="images">
                 <img src="https://static.vecteezy.com/system/resources/previews/035/780/762/non_2x/little-girl-stands-near-school-chalk-board-with-formulas-and-tries-to-solve-difficult-problem-child-prodigy-student-in-elementary-school-thought-about-solving-theorem-from-higher-mathematics-vector.jpg" class="float-img float-right" alt="Solving math equations" title="My Life during Elementary">
@@ -295,7 +352,7 @@
             I never worried about falling behind in classes since my teachers, who were also my coaches, were very lenient. I did not have any problem with my academics; in fact, I was praised by my teachers because, despite my busy schedule, I was still able to submit proper outputs on time. During this period, I achieved many awards. My greatest accomplishments were reaching the National level for the Science Quiz Bee, where I placed 4th, and winning the National Bulilit Health Workers Quiz Bee two years in a row. These competitions brought me not only joy but also took me to places I’d never been before. I remember being amazed by the scenic views in Tagaytay—even while crying because I couldn’t find my mother. I remember the long drive to Pasig while preparing for the contest the next day. These moments were valuable; they are a constant part of me. <b>Ultimately, they were experiences that made me who I am today.</b>
         </p>
 
-        <h3 class="article-h3">Teenage Years</h3>
+        <h3 id="teen" class="article-h3">Teenage Years</h3>
         <p>
             <a href="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer-p5CZl0KaiHQ34R7FrITI8qk06G-gxr4ppKMqVtAvTUv3_Aqo3NI3EV0HzTiPMqntEk8Ozm29UPVVi660DxXL8rVRJYbJEZUxSNA_xQRlLgq5dA5YwGW9UECRFTw_PuInZZeb=s1360-w1360-h1020-rw" target="images">
                 <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer-p5CZl0KaiHQ34R7FrITI8qk06G-gxr4ppKMqVtAvTUv3_Aqo3NI3EV0HzTiPMqntEk8Ozm29UPVVi660DxXL8rVRJYbJEZUxSNA_xQRlLgq5dA5YwGW9UECRFTw_PuInZZeb=s1360-w1360-h1020-rw" alt="Teenage Life" class="float-img float-left" alt="PSHS CALABARZON RC" title="PSHS CALABARZON RC">
@@ -307,7 +364,7 @@
             This whole period became my worst nightmare as my grades dropped to an all-time low. Thankfully, the pandemic eventually ended, and we could go back to our on-site classes. I finally managed to get back on track again. I started doing well in my subjects and prepared seriously for my college applications. The final part of my high school life was filled with fun times and new friendships. I made sure to enjoy my teenage years fully. The best part was meeting lifelong friends who accepted me as I was. They never judged me based on how smart I was or what I was capable of. I <b>graduated happily</b>, even though I didn’t receive any honors. It was such a refreshing feeling to leave PSHS smiling, finally free from the stressful workload.
         </p>
 
-        <h3 class="article-h3">College Years</h3>
+        <h3 id="college" class="article-h3">College Years</h3>
         <p>
             <a href="https://images.gmanews.tv/webpics/2025/07/UE_2025_07_11_00_58_23.GIF" target="images">
                 <img src="https://images.gmanews.tv/webpics/2025/07/UE_2025_07_11_00_58_23.GIF" alt="University Life" class="float-img float-right">
@@ -327,5 +384,6 @@
 </body>
 
 </html>
+
 
 
